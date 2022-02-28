@@ -35,9 +35,9 @@ function showTodo(filter) {
                          <ul class="task-menu">
                             <li onclick="editTask(${id}, '${todo.name}')">
                             <i class="uil uil-pen">
-                            </i>Edit</li>
+                            </i>Editar</li>
                             <li onclick="deleteTask(${id})" >
-                            <i class="uil uil-trash"></i>Delete</li>
+                            <i class="uil uil-trash"></i>Deletar</li>
                         </ul>
                     </div>`
             }
