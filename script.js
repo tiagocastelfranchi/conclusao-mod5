@@ -3,6 +3,9 @@ filters = document.querySelectorAll('.filters span')
 clearAll = document.querySelector('.clear-btn')
 taskBox = document.querySelector('.task-box')
 const btnTask = document.querySelector('.add-task')
+const pendingTask = document.getElementById('pending')
+const completedTask = document.getElementById('completed')
+const allTask = document.getElementById('all')
 
 let editId
 let isEditedTask = false
@@ -62,9 +65,20 @@ function editTask(taskId, taskName) {
 }
 
 function deleteTask(deleteId) {
-    todos.splice(deleteId, 1)
-    localStorage.setItem('todo-list', JSON.stringify(todos))
-    showTodo('all')
+    if (completedTask.classList == 'active') {
+        todos.splice(deleteId, 1)
+        localStorage.setItem('todo-list', JSON.stringify(todos))
+        showTodo('completed')
+    } else if (pendingTask.classList == 'active') {
+        todos.splice(deleteId, 1)
+        localStorage.setItem('todo-list', JSON.stringify(todos))
+        showTodo('pending')
+    } else if (allTask) {
+        todos.splice(deleteId, 1)
+        localStorage.setItem('todo-list', JSON.stringify(todos))
+        showTodo('all')
+    }
+
 }
 
 clearAll.addEventListener('click', () => {
@@ -103,7 +117,7 @@ taskInput.addEventListener("keyup", (event) => {
             localStorage.setItem('todo-list', JSON.stringify(todos))
             showTodo('all')
         }
-    }, 2000)
+    }, 2)
 })
 
 btnTask.onclick = () => {
@@ -126,5 +140,5 @@ btnTask.onclick = () => {
         localStorage.setItem('todo-list', JSON.stringify(todos))
         showTodo('all')
 
-    }, 2000)
+    }, 2)
 }
