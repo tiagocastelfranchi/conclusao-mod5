@@ -117,7 +117,7 @@ taskInput.addEventListener("keyup", (event) => {
             localStorage.setItem('todo-list', JSON.stringify(todos))
             showTodo('all')
         }
-    }, 2)
+    }, 2000)
 })
 
 btnTask.onclick = () => {
@@ -140,5 +140,5 @@ btnTask.onclick = () => {
         localStorage.setItem('todo-list', JSON.stringify(todos))
         showTodo('all')
 
-    }, 2)
+    }, 2000)
 }
