@@ -67,8 +67,7 @@ O objetivo do projeto foi desenvolver uma lista de afazeres, onde o usuário ins
 
 ## Pontos de melhoria:
 - Abaixo são citadas algumas melhorias que o programador pôde enxergar, mas não implementar ainda devido ao conhecimento em expansão. São elas:
-
-Melhoria do layout, implementação de responsividade, adicionar uma função para modificar o tema do aplicativo, adicionar uma lista separada que irá armazenar os itens excluídos, otimização do código e inserir uma função de alert caso o usuário deseje excluir todas as tarefas listadas.
+    Melhoria do layout, implementação de responsividade, adicionar uma função para modificar o tema do aplicativo, adicionar uma lista separada que irá armazenar os itens excluídos, otimização do código e inserir uma função de alert caso o usuário deseje excluir todas as tarefas listadas.
 
 
 
