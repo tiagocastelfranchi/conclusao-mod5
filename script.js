@@ -1,13 +1,14 @@
-const taskInput = document.querySelector(".task-input input")
-filters = document.querySelectorAll('.filters span')
-clearAll = document.querySelector('.clear-btn')
-taskBox = document.querySelector('.task-box')
+const taskInput = document.querySelector('.task-input input')
+const filters = document.querySelectorAll('.filters span')
+const clearAll = document.querySelector('.clear-btn')
+const taskBox = document.querySelector('.task-box')
 const btnTask = document.querySelector('.add-task')
+
 const pendingTask = document.getElementById('pending')
 const completedTask = document.getElementById('completed')
 const allTask = document.getElementById('all')
 
-let editId
+let editId = true
 let isEditedTask = false
 let todos = JSON.parse(localStorage.getItem('todo-list'))
 
@@ -59,9 +60,17 @@ function showMenu(selectedTask) {
 }
 
 function editTask(taskId, taskName) {
-    editId = taskId
-    isEditedTask = true
-    taskInput.value = taskName
+    if (completedTask.classList == 'active') {
+        editId = taskId
+        isEditedTask = true
+        taskInput.value = taskName
+        showTodo('completed')
+    } else if (pendingTask.classList == 'active') {
+        editId = taskId
+        isEditedTask = true
+        taskInput.value = taskName
+        showTodo('pending')
+    }
 }
 
 function deleteTask(deleteId) {
@@ -113,11 +122,14 @@ taskInput.addEventListener("keyup", (event) => {
                 isEditedTask = false
                 todos[editId].name = userTask
             }
+            allTask.classList.add('active')
+            completedTask.classList.remove('active')
+            pendingTask.classList.remove('active')
             taskInput.value = ''
             localStorage.setItem('todo-list', JSON.stringify(todos))
             showTodo('all')
         }
-    }, 2000)
+    }, 20)
 })
 
 btnTask.onclick = () => {
@@ -135,10 +147,12 @@ btnTask.onclick = () => {
                 todos[editId].name = userTask
             }
         }
-
+        allTask.classList.add('active')
+        completedTask.classList.remove('active')
+        pendingTask.classList.remove('active')
         taskInput.value = ''
         localStorage.setItem('todo-list', JSON.stringify(todos))
         showTodo('all')
 
-    }, 2000)
+    }, 20)
 }
